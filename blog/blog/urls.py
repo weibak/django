@@ -20,5 +20,5 @@ from posts.views import posts_index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', posts_index)
+    path('', posts_index, name='index')
 ]
