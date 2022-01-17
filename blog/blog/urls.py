@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.template.defaultfilters import title
 from django.urls import path
 
 from posts.views import posts_index, posts_index_2
@@ -24,4 +25,6 @@ urlpatterns = [
     path('index/', posts_index,),
     path('index2/', posts_index_2,),
     path('profiles/', profiles_index,),
+    path('search_title/', title),
+
 ]

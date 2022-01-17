@@ -28,8 +28,8 @@ def profiles_index(request):
 def blog1_index_2(request):
     value = request.GET.get("key_1")
     logger.info(value)
-    a = input('some word: ')
-    return HttpResponse(f"{a}, Blog_1 index view111111111")
+
+    return HttpResponse(f"Blog_1 index view111111111")
 
 
 def post_r(request):
