@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from posts.views import posts_index, posts_index_2
-from photos.views import profiles_index
+from profiles.views import profiles_index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
