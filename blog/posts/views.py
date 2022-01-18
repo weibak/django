@@ -22,5 +22,5 @@ def search_title(request, post):
     value = request.GET.get("title", "")
     title = request.GET.get("title", "")
     logger.info(f"Post with title = {value}")
-    output = "<h2> Post N {0}    Title {1} <h2>".format(post, title)
+    output = "<h2> Title N {0}</h2><br><h2>Post {1} </h2>".format(post, title)
     return HttpResponse(output)

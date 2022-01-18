@@ -1,4 +1,3 @@
-
 import logging
 from django.http import HttpResponse
 
@@ -23,17 +22,3 @@ def profiles_index(request):
     value and logger.info(f"post-key-3 = {value}")
 
     return HttpResponse("Profiles index view")
-
-
-def blog1_index_2(request):
-    value = request.GET.get("key_1")
-    logger.info(value)
-
-    return HttpResponse(f"Blog_1 index view111111111")
-
-
-def post_r(request):
-    if request == "POST":
-        value = request("post_r_1")
-        logger.info(value)
-    return HttpResponse("Blog_1 index view")
