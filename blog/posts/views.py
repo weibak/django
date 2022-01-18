@@ -17,10 +17,10 @@ def posts_index_2(request):
     return HttpResponse("Posts index view111111111")
 
 
-def search_title(request):
+# get запрос через URL
+def search_title(request, post):
     value = request.GET.get("title", "")
-    post = request.GET.get("Title", "Post")
-    logger.info(f"Post with = {value}")
-    title = "<h2>Post</h2><h3>Title {0} Title: {1}</h3>".format(value, post)
-
-    return HttpResponse(title)
+    title = request.GET.get("title", "")
+    logger.info(f"Post with title = {value}")
+    output = "<h2> Post N {0}    Title {1} <h2>".format(post, title)
+    return HttpResponse(output)
