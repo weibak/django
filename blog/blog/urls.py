@@ -17,12 +17,16 @@ from django.contrib import admin
 from django.urls import path
 from posts import views
 from posts.views import posts_index, posts_index_2
-from profiles.views import profiles_index
+from profiles.views import profiles_index, search_profile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', posts_index,),
     path('index2/', posts_index_2,),
-    path('profiles/', profiles_index,),
-    path('search_title/<str:post>/', views.search_title),
+    path('search_slug/', views.search_slug,),
+    path('search_title/', views.search_title),
+    path('search_posts/', views.search_user_posts),
+    path('profiles/', profiles_index, ),
+    path('profiles/', profiles_index, ),
+    path('profile_profile/', search_profile, ),
 ]

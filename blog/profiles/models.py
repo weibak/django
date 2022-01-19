@@ -7,10 +7,6 @@ class Profile(models.Model):
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="profiles"
     )
 
-    """email = models.OneToOneField(
-        user, on_delete=models.CASCADE, default=""
-    )"""
-
     age = models.IntegerField()
     image = models.ImageField(blank=True, null=True)
     status = models.TextField()
@@ -18,3 +14,7 @@ class Profile(models.Model):
         auto_now_add=True, db_index=True
     )
 
+
+class Tags(models.Model):
+    user = models.CharField(max_length=100)
+    profiles = models.ManyToManyField(Profile)
