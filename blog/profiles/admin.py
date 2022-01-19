@@ -8,3 +8,5 @@ class ProfileAdmin(admin.ModelAdmin):
     fields = ("user", "age", "image", "status", "created_at")
     readonly_fields = ("created_at",)
     search_fields = ("age", "created_at")
+
+

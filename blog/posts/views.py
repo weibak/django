@@ -46,16 +46,14 @@ def search_slug(request):
 def search_user_posts(request):
     author = request.GET.get("author", "")
     logger.info(f"Posts with author = {author}")
-    Post.objects.filter(author=request.user)
-    title = Post.objects.title
-    author = Post.objects.author
-    text = Post.objects.text
-    image = Post.objects.text
-    created_at = Post.objects.created_at
-    context = "<h2> Author: {0}</h2><br>" \
-              "<h2> Title: {1}</h2><br>" \
-              "<h2> Image: {2}</h2><br>" \
-              "<h2> Text: {3}</h2><br>" \
-              "<h2> Created at: {4}</h2><br>".format(author, title, image, text, created_at)
-
+    posts = Post.objects.filter(author__username=author)
+    context = ""
+    for post in posts:
+        context += f"<div style='border: 1px solid black'>"
+        context += f"<h2> Author: {post.author}</h2><br>"
+        context += f"<h2> Title: {post.title}</h2><br>"
+        context += f"<h2> Image: {post.image}</h2><br>"
+        context += f"<h2> Text: {post.text}</h2><br>"
+        context += f"<div> Created at: {post.created_at}</h2><br>"
+        context += f"</div>"
     return HttpResponse(context)
