@@ -2,7 +2,7 @@
 		/* Base styles	 */
 	/*-------------------------------------------------------*/
 	body {
-		background-image:url(../images/bg3.png);
+		background-image:url(/media/bg3.png);
 		background-color: #999;
 		margin: 0px;
 		padding: 0px;
@@ -108,42 +108,12 @@
 		background-color:#222;
 		color:#FFF;
 	}
-	.social-facebook {
-		float:left;
-		width:30px;
-		height:30px;
-		background:#222 url('../images/social_facebook.png') no-repeat 5px 5px;
-	}
-	.social-twitter {
-		float:left;
-		width:30px;
-		height:30px;
-		background:#222 url('../images/social_twitter.png') no-repeat 5px 5px;
-	}
-	.social-googleplus {
-		float:left;
-		width:30px;
-		height:30px;
-		background:#222 url('../images/social_googleplus.png') no-repeat 4px 3px;
-	}
-	.social-facebook:hover {
-		background-color:#3b5998;
-	}
-	.social-twitter:hover {
-		background-color:#22b1e5;
-	}
-	.social-googleplus:hover {
-		background-color:#d94a38;
-	}
-	.social-mail:hover {
-		background-color:#f6c500;
-	}
 	/*-------------------------------------------------------*/
 		/* Profile Section */
 	/*-------------------------------------------------------*/
     #profile {
-		background-image:url(../images/header-shadow.png), url(../images/header-bg.png);
-		background:url(../images/header-bg.png) repeat-x\0/; /* For ie8 */
+		background-image:url(/media/header-shadow.png), url(/media/header-bg.png);
+		background:url(/media/header-bg.png) repeat-x\0/; /* For ie8 */
 		background-position:center bottom, left top;
 		background-repeat:repeat-x;
 		overflow:hidden;
@@ -158,7 +128,7 @@
 	}
 	.about .photo-inner {
 		float:left;
-		background:url(../images/photo-inner.png) no-repeat;
+		background:url('/media/photo-inner.png') no-repeat;
 		width:192px;
 		height:212px;
 		padding:12px 0 0 20px;
@@ -191,7 +161,6 @@
 		width:310px;
 		min-height:230px;
 		margin-left:10px;
-		background:url(../images/personal-info-sep.png) no-repeat left top;
 		padding:20px 0 0 20px;
 	}
 	.personal-info li {
@@ -242,41 +211,10 @@
 		color:#b9b9b9;
 		text-align:center;
 	}
-	.tabs li.active {
-		background:url('../images/tab-hover.png') no-repeat;
-	}
 	.tabs li.active a {
 		color:#fdc62a;
 	}
-	.tabs li .tab-profile {
-		background-image:url(../images/profile-icon.png);
-		background-position:center 40px;
-	}
-	.tabs li .tab-resume {
-		background-image:url(../images/resume-icon.png);
-		background-position:center 30px;
-	}
-	.tabs li .tab-portfolio {
-		background-image:url(../images/portfolio-icon.png);
-		background-position:center 35px;
-	}
-	.tabs li .tab-contact {
-		background-image:url(../images/contact-icon.png);
-		background-position:center 41px;
-	}
-	/* Active icons */
-		.tabs .active .tab-profile {
-		background-image:url(../images/profile-icon-active.png);
-	}
-	.tabs .active .tab-resume {
-		background-image:url(../images/resume-icon-active.png);
-	}
-	.tabs .active .tab-portfolio {
-		background-image:url(../images/portfolio-icon-active.png);
-	}
-	.tabs .active .tab-contact {
-		background-image:url(../images/contact-icon-active.png);
-	}
+
 	/*-------------------------------------------------------*/
 		/* Resume Section */
 	/*-------------------------------------------------------*/
@@ -787,19 +725,6 @@
 		margin-right:40px;
 	}
 	/*-------------------------------------------------------*/
-		/* Contact */
-	/*-------------------------------------------------------*/
-	.contact-info {
-		width:420px;
-	}
-	.contact-form {
-		margin-top:20px;
-		width:420px;
-	}
-	
-#style-switcher {
-	display:none}
-}
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {
 	
