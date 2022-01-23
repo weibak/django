@@ -44,7 +44,6 @@
 	h6 {font-size: 12px;}
 	
 	h3.main-heading {
-		background-image:url('../images/plus.png');
 		background-repeat: no-repeat;
 		background-position:left 2px;
 		margin:15px 2px;
@@ -296,28 +295,28 @@
 		float:left;
 	}
 	.skills li .rat0 {
-		background:url(../images/rats.png) no-repeat;
+		background:url(/media/rats.png) no-repeat;
 	}
 	.skills li .rat1 {
-		background:url(../images/rats.png) no-repeat 0px -14px;
+		background:url(/media/rats.png) no-repeat 0px -14px;
 	}
 	.skills li .rat2 {
-		background:url(../images/rats.png) no-repeat 0px -28px;
+		background:url(/media/rats.png) no-repeat 0px -28px;
 	}
 	.skills li .rat3 {
-		background:url(../images/rats.png) no-repeat 0px -42px;
+		background:url(/media/rats.png) no-repeat 0px -42px;
 	}
 	.skills li .rat4 {
-		background:url(../images/rats.png) no-repeat 0px -56px;
+		background:url(/media/rats.png) no-repeat 0px -56px;
 	}
 	.skills li .rat5 {
-		background:url(../images/rats.png) no-repeat 0px -70px;
+		background:url(/media/rats.png) no-repeat 0px -70px;
 	}
 	.skills li .rat6 {
-		background:url(../images/rats.png) no-repeat 0px -84px;
+		background:url(/media/rats.png) no-repeat 0px -84px;
 	}
 	.skills li .rat7 {
-		background:url(../images/rats.png) no-repeat 0px -98px;
+		background:url(/media/rats.png) no-repeat 0px -98px;
 	}
 	/*-------------------------------------------------------*/
 		/* Portfolio Section */
@@ -649,208 +648,246 @@
 /* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
 @media only screen and (min-width: 480px) and (max-width: 767px) {
 	#container {
-		width:470px;
+		width: 470px;
 	}
+
 	/*-------------------------------------------------------*/
-		/* Top Section */
-	/*-------------------------------------------------------*/	
+	/* Top Section */
+	/*-------------------------------------------------------*/
 	/* Logo */
 	#logo h2 {
-		font-size:25px;
-		font-weight:900;
+		font-size: 25px;
+		font-weight: 900;
 		color: #444;
-		line-height:30px;
+		line-height: 30px;
 	}
+
 	#logo h4 {
-		color:#666;
-		line-height:15px;
+		color: #666;
+		line-height: 15px;
 	}
+
 	/* Social icons */
 	.socialicons {
-		margin-top:9px;
+		margin-top: 9px;
 	}
+
 	.social-text {
-		display:none;
+		display: none;
 	}
+
 	/*-------------------------------------------------------*/
-		/* Profile Section */
+	/* Profile Section */
 	/*-------------------------------------------------------*/
 	/* About */
 	.about {
-		width:420px;
-		display:block;
-	}
-	.about h1 {
-		line-height:38px;
-		font-size:30px
-	}
-	.about h3 {
-		font-size:14px;
-		line-height:14px;
-	}
-	/* Personal info */
-	.personal-info {
-		margin-top:0;
-		display:block;
-		width:420px;
-		background:none;
-		border-top:1px solid #fdc62a;
-	}
-	/*-------------------------------------------------------*/
-		/* Menu */
-	/*-------------------------------------------------------*/
-	.tabs {
-		padding-left:5px;
-	}
-	.timeline-section {
-		width:420px;
-		padding-right:60px;
-	}
-	/*-------------------------------------------------------*/
-		/* Resume */
-	/*-------------------------------------------------------*/
-	.skills-section {
-		width:420px;
-	}
-	.skills li h4 {
-		width:260px;
-	}
-	/*-------------------------------------------------------*/
-		/* Portfolio */
-	/*-------------------------------------------------------*/
-	#portfolio-list {
-		width:450px;
-	}
-	#portfolio-list li {
-		margin-right:40px;
-	}
-	/*-------------------------------------------------------*/
-/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
-@media only screen and (max-width: 479px) {
-	
-	#container {
-		width:300px;
-				margin-top:10px;
-	}
-	/*-------------------------------------------------------*/
-		/* Top Section */
-	/*-------------------------------------------------------*/
-	/* Logo */
-	#logo h2 {
-		font-size:25px;
-		font-weight:900;
-		color: #444;
-		line-height:30px;
-	}
-	#logo h4 {
-		color:#666;
-		line-height:15px;
-	}
-	.socialicons {
-		display:none; !important
-	}
-	/*-------------------------------------------------------*/
-		/* Profile Section */
-	/*-------------------------------------------------------*/
-	div.top {
-		height:50px;
-		margin-bottom:5px;
-	}
-	/* About */
-	.about {
-		width:280px;
-		display:block;
-		margin:10px 0 15px 10px;
-	}
-	.about .photo-inner {
-		margin-left:40px;
-		background:url(../images/photo-inner.png) no-repeat;
-		width:192px;
-		height:212px;
-		padding:12px 0 0 20px;
-	}
-	.about h1 {
-		line-height:38px;
-		font-size:30px;
-		text-align:center;
-	}
-	.about h3 {
-		font-size:14px;
-		line-height:14px;
-		text-align:center;
-	}
-	.about p {
-		text-align:center;
-	}
-	/* Personal info */
-	.personal-info {
-		margin-top:0;
-		display:block;
-		width:280px;
-		background:none;
-		border-top:1px solid #fdc62a;
-		margin-left:10px;
-		min-height:220px;
-		padding-left:0;
-	}
-	.personal-info li {
-		font-size:13px;
-	}
-	/*-------------------------------------------------------*/
-		/* Menu */
-	/*-------------------------------------------------------*/
-	.tabs {
-		padding-left:0px;
+		width: 420px;
+		display: block;
 	}
 
-	.tabs li > a {
-		width:75px;
-		font-size:14px;
-
+	.about h1 {
+		line-height: 38px;
+		font-size: 30px
 	}
-	.tabs li.active {
+
+	.about h3 {
+		font-size: 14px;
+		line-height: 14px;
+	}
+
+	/* Personal info */
+	.personal-info {
+		margin-top: 0;
+		display: block;
+		width: 420px;
 		background: none;
+		border-top: 1px solid #fdc62a;
 	}
+
 	/*-------------------------------------------------------*/
-		/* Resume */
+	/* Menu */
 	/*-------------------------------------------------------*/
-	#resume {
-		padding:10px;
+	.tabs {
+		padding-left: 5px;
 	}
+
 	.timeline-section {
-		width:280px;
-		padding-right:60px;
+		width: 420px;
+		padding-right: 60px;
 	}
-	.skills-section {
-		width:280px;
-	}
-	.skills li h4 {
-		width:120px;
-	}
+
 	/*-------------------------------------------------------*/
-		/* Portfolio */
+	/* Resume */
+	/*-------------------------------------------------------*/
+	.skills-section {
+		width: 420px;
+	}
+
+	.skills li h4 {
+		width: 260px;
+	}
+
+	/*-------------------------------------------------------*/
+	/* Portfolio */
 	/*-------------------------------------------------------*/
 	#portfolio-list {
-		width:280px;
+		width: 450px;
 	}
-	#portfolio-list li {
-		margin-left:40px;
-	}
-	/*-------------------------------------------------------*/
-		/* Contact */
-	/*-------------------------------------------------------*/
-	
-	.contact-info {
-		width:280px;
-	}
-	.contact-form {
-		margin-top:20px;
-		width:280px;
-	}
-	.contact-info, .contact-form {
-		padding:0 10px;
-	}
-#style-switcher {
-	display:none}
 
+	#portfolio-list li {
+		margin-right: 40px;
+	}
+
+	/*-------------------------------------------------------*/
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {
+
+		#container {
+			width: 300px;
+			margin-top: 10px;
+		}
+
+		/*-------------------------------------------------------*/
+		/* Top Section */
+		/*-------------------------------------------------------*/
+		/* Logo */
+		#logo h2 {
+			font-size: 25px;
+			font-weight: 900;
+			color: #444;
+			line-height: 30px;
+		}
+
+		#logo h4 {
+			color: #666;
+			line-height: 15px;
+		}
+
+		.socialicons {
+			display: none;
+		!important
+		}
+
+		/*-------------------------------------------------------*/
+		/* Profile Section */
+		/*-------------------------------------------------------*/
+		div.top {
+			height: 50px;
+			margin-bottom: 5px;
+		}
+
+		/* About */
+		.about {
+			width: 280px;
+			display: block;
+			margin: 10px 0 15px 10px;
+		}
+
+		.about .photo-inner {
+			margin-left: 40px;
+			width: 192px;
+			height: 212px;
+			padding: 12px 0 0 20px;
+		}
+
+		.about h1 {
+			line-height: 38px;
+			font-size: 30px;
+			text-align: center;
+		}
+
+		.about h3 {
+			font-size: 14px;
+			line-height: 14px;
+			text-align: center;
+		}
+
+		.about p {
+			text-align: center;
+		}
+
+		/* Personal info */
+		.personal-info {
+			margin-top: 0;
+			display: block;
+			width: 280px;
+			background: none;
+			border-top: 1px solid #fdc62a;
+			margin-left: 10px;
+			min-height: 220px;
+			padding-left: 0;
+		}
+
+		.personal-info li {
+			font-size: 13px;
+		}
+
+		/*-------------------------------------------------------*/
+		/* Menu */
+		/*-------------------------------------------------------*/
+		.tabs {
+			padding-left: 0px;
+		}
+
+		.tabs li > a {
+			width: 75px;
+			font-size: 14px;
+
+		}
+
+		.tabs li.active {
+			background: none;
+		}
+
+		/*-------------------------------------------------------*/
+		/* Resume */
+		/*-------------------------------------------------------*/
+		#resume {
+			padding: 10px;
+		}
+
+		.timeline-section {
+			width: 280px;
+			padding-right: 60px;
+		}
+
+		.skills-section {
+			width: 280px;
+		}
+
+		.skills li h4 {
+			width: 120px;
+		}
+
+		/*-------------------------------------------------------*/
+		/* Portfolio */
+		/*-------------------------------------------------------*/
+		#portfolio-list {
+			width: 280px;
+		}
+
+		#portfolio-list li {
+			margin-left: 40px;
+		}
+
+		/*-------------------------------------------------------*/
+		/* Contact */
+		/*-------------------------------------------------------*/
+		.contact-info {
+			width: 280px;
+		}
+
+		.contact-form {
+			margin-top: 20px;
+			width: 280px;
+		}
+
+		.contact-info, .contact-form {
+			padding: 0 10px;
+		}
+
+		#style-switcher {
+			display: none
+		}
+	}
 }
