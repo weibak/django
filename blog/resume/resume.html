@@ -28,7 +28,7 @@
                 <div id="profile"> 
                  	<!-- About section -->
                 	<div class="about">
-                    	<div class="photo-inner"><img src="/media/avatar.jpg" height="186" width="153" /></div>
+                    	<div class="photo-inner"><img src="/media/avatar.jpg" height="186" width="153"  alt=""/></div>
                         <h1>Artem Sheibak</h1>
                         <h3>Python Developer</h3>
                         <p>I like to make cool and quality code. My head is always full of refreshing ideas. Full of energy and enthusiasm.</p>
@@ -190,17 +190,23 @@
                         <form action="#" id="contactform">
                             <p>
                             	<label for="name">Your Name</label>
-                            	<input type="text" name="name" class="input" >
+                                <label>
+                                    <input type="text" name="name" class="input" >
+                                </label>
                             </p>
                             <p>
                             	<label for="email">Your Email</label>
-                            	<input type="text" name="email" class="input">
+                                <label>
+                                    <input type="text" name="email" class="input">
+                                </label>
                             </p>
                             <p>
                             	<label for="message">Your Message</label>
-                                <textarea name="message" cols="88" rows="6" class="textarea" ></textarea>
+                                <label>
+                                    <textarea name="message" cols="88" rows="6" class="textarea" ></textarea>
+                                </label>
                             </p>
-                            <input type="submit" name="submit" value="Send your message" onclick="alert('Your successfully sent!')" class="submit">
+                            <input type="submit" name="submit" value="Send your message" onclick="alert('Your message successfully sent!')" class="submit">
                         </form>
                     </div>
                     <!-- /Contact Form -->
