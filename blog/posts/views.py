@@ -2,7 +2,6 @@ from django.http import HttpResponse
 import logging
 from posts.models import Post
 
-
 logger = logging.getLogger(__name__)
 
 

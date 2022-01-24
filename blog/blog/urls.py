@@ -16,6 +16,8 @@ Including another URLconf
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
+
+from blog.views import register, register1
 from posts import views
 from posts.views import posts_index, posts_index_2
 from profiles.views import profiles_index, search_profile
@@ -23,14 +25,15 @@ from profiles.views import profiles_index, search_profile
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', posts_index,),
+    path('', posts_index,),
     path('index2/', posts_index_2,),
     path('search_slug/', views.search_slug,),
     path('search_title/', views.search_title),
     path('search_posts/', views.search_user_posts),
     path('profiles/', profiles_index, ),
-    path('profiles/', profiles_index, ),
     path('profile_profile/', search_profile, ),
+    path('register/', register,),
+    path('register/test/', register1, ),
 ]
 
 if settings.DEBUG:
