@@ -162,5 +162,3 @@ LOGGING = {
         'level': 'ERROR',
     }
 }
-
-

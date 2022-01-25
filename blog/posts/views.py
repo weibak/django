@@ -1,6 +1,10 @@
+from datetime import datetime
 from django.http import HttpResponse
 import logging
+from django.shortcuts import redirect, render
+from posts.forms import PostForm
 from posts.models import Post
+
 
 logger = logging.getLogger(__name__)
 
@@ -56,3 +60,26 @@ def search_user_posts(request):
         context += f"<div> Created at: {post.created_at}</h2><br>"
         context += f"</div>"
     return HttpResponse(context)
+
+
+def create_post(request):
+    if request.user.is_authenticated:
+        if request.method == "POST":
+            form = PostForm(request.POST)
+            if form.is_valid():
+                logger.info(form.cleaned_data)
+                post = Post(
+                    author=request.user,
+                    title=form.cleaned_data['title'],
+                    text=form.cleaned_data['text'],
+                    image=form.cleaned_data['image'],
+                    slug=form.cleaned_data['slug'],
+                    created_at=datetime
+                )
+                post.save()
+                return redirect('/auth/',)
+        else:
+            form = PostForm()
+        return render(request, 'create_post.html', {'form': form})
+    else:
+        return HttpResponse("You don't authenticated!")
