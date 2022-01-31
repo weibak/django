@@ -77,7 +77,7 @@ def create_post(request):
                     created_at=datetime
                 )
                 post.save()
-                return redirect('/auth/',)
+                return redirect('/',)
         else:
             form = PostForm()
         return render(request, 'create_post.html', {'form': form})

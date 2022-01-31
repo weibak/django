@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from blog.views import register, register1, sign_in
 from posts import views
@@ -36,6 +36,7 @@ urlpatterns = [
     path('register/test/', register1, ),
     path('auth/', sign_in, ),
     path('post/', create_post, ),
+    path("api/", include("api.urls", namespace="api")),
 ]
 
 if settings.DEBUG:
