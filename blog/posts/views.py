@@ -83,3 +83,10 @@ def create_post(request):
         return render(request, 'create_post.html', {'form': form})
     else:
         return HttpResponse("You don't authenticated!")
+
+
+def post_list(request):
+    if request.user.is_anonymous:
+        return redirect("admin:index")
+    posts = Post.objects.filter(author=request.user).order_by("-id")
+    return render(request, "list.html", {"posts": posts})
