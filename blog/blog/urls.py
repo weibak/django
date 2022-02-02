@@ -34,7 +34,7 @@ urlpatterns = [
     path('profile_profile/', search_profile, ),
     path('register/', register,),
     path('register/test/', register1, ),
-    path('auth/', sign_in, ),
+    path('auth/', sign_in, name="auth"),
     path('post/', create_post, name="post_add"),
     path("api/", include("api.urls", namespace="api")),
 ]

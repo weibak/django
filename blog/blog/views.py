@@ -23,7 +23,7 @@ def register(request):
             )
             user.set_password(form.cleaned_data['password'])
             user.save()
-            return redirect("/post/")
+            return redirect("/")
     else:
         form = RegisterForm()
     return render(request, "register.html", {"form": form})
@@ -45,7 +45,7 @@ def sign_in(request):
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('/post/')
+                    return redirect('/')
                 else:
                     return HttpResponse('Disabled account')
             else:
