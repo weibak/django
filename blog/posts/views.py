@@ -81,6 +81,7 @@ def post_list(request):
     if request.user.is_anonymous:
         return redirect("auth")
     posts = Post.objects.filter(author=request.user)
+    logger.info(f"Posts of {request.user}")
     return render(request, "list.html", {"posts": posts})
 
 
@@ -88,4 +89,5 @@ def post_list_all(request):
     if request.user.is_anonymous:
         return redirect("auth")
     posts = Post.objects.order_by("-created_at")
+    logger.info(f"Posts of all users")
     return render(request, "list.html", {"posts": posts})
