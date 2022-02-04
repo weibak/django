@@ -1,4 +1,3 @@
-from datetime import datetime
 from django.http import HttpResponse
 import logging
 from django.shortcuts import redirect, render
@@ -68,14 +67,7 @@ def create_post(request):
             form = PostForm(request.POST)
             if form.is_valid():
                 logger.info(form.cleaned_data)
-                post = Post(
-                    author=request.user,
-                    title=form.cleaned_data['title'],
-                    text=form.cleaned_data['text'],
-                    image=form.cleaned_data['image'],
-                    slug=form.cleaned_data['slug'],
-                    created_at=datetime
-                )
+                post = Post.objects.create(author=request.user, **form.cleaned_data)
                 post.save()
                 return redirect('/',)
         else:
@@ -88,5 +80,12 @@ def create_post(request):
 def post_list(request):
     if request.user.is_anonymous:
         return redirect("auth")
-    posts = Post.objects.order_by("-id")
+    posts = Post.objects.filter(author=request.user)
+    return render(request, "list.html", {"posts": posts})
+
+
+def post_list_all(request):
+    if request.user.is_anonymous:
+        return redirect("auth")
+    posts = Post.objects.order_by("-created_at")
     return render(request, "list.html", {"posts": posts})

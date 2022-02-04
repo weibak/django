@@ -12,7 +12,7 @@ class RegisterForm(forms.Form):
 
 
 class AuthForm(forms.Form):
-    email = forms.EmailField()
+    username = forms.CharField()
     password = forms.CharField(
         min_length=8, widget=forms.PasswordInput()
     )

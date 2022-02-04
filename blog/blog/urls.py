@@ -17,9 +17,9 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 
-from blog.views import register, register1, sign_in
+from blog.views import register, sign_in, logout_view
 from posts import views
-from posts.views import posts_index_2, create_post, post_list
+from posts.views import posts_index_2, create_post, post_list, post_list_all
 from profiles.views import profiles_index, search_profile
 
 
@@ -32,11 +32,12 @@ urlpatterns = [
     path('search_posts/', views.search_user_posts),
     path('profiles/', profiles_index, ),
     path('profile_profile/', search_profile, ),
-    path('register/', register,),
-    path('register/test/', register1, ),
+    path('register/', register, name='register'),
     path('auth/', sign_in, name="auth"),
     path('post/', create_post, name="post_add"),
     path("api/", include("api.urls", namespace="api")),
+    path('logout/', logout_view, name='logout'),
+    path('posts/all/', post_list_all, name='posts_all'),
 ]
 
 if settings.DEBUG:

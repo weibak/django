@@ -2,12 +2,12 @@
 {% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>Your posts</h1>
+  <h1>Your posts, {{request.user}}</h1>
   {% if not posts %}
     <b>You haven't added any posts yet.</b><br>
   {% endif %}
   Use <a href="{% url "post_add" %}">this form</a> to add a new post.<br><br>
-
+  Use <a href="{% url "posts_all" %}">this form</a> to view all posts.<br><br>
   <div class="container posts">
     <div class="row">
       {% for post in posts %}
@@ -19,10 +19,12 @@
             <div class="card-body">
               <h5 class="card-title">{{ post.title }}</h5>
               <p class="card-text">{{ post.text }}</p>
+              <p class="card-date">{{ post.created_at }}</p>
             </div>
           </div>
         </div>
       {% endfor %}
+    <p><a href="{% url 'logout' %}">Log Out</a></p>
     </div>
   </div>
 {% endblock %}
