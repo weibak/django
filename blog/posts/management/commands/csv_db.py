@@ -18,12 +18,10 @@ class Command(BaseCommand):
         with open(settings.BASE_DIR / "posts.csv", "r") as file:
             reader = csv.reader(file)
             for row in reader:
-                user = User.objects.create(username=row[6])
+                user = User.objects.get_or_create(username=row[3])
                 Post.objects.create(
-                    id=row[0],
-                    title=row[1],
-                    slug=row[3],
-                    text=row[4],
-                    created_at=row[4],
+                    title=row[0],
+                    slug=row[1],
+                    text=row[2],
                     author=user
                 )
