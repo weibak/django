@@ -64,7 +64,7 @@ def search_user_posts(request):
 def create_post(request):
     if request.user.is_authenticated:
         if request.method == "POST":
-            form = PostForm(request.POST)
+            form = PostForm(request.POST, request.FILES)
             if form.is_valid():
                 logger.info(form.cleaned_data)
                 post = Post.objects.create(author=request.user, **form.cleaned_data)
