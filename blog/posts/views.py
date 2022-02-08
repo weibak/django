@@ -72,7 +72,7 @@ def create_post(request):
                 return redirect('/',)
         else:
             form = PostForm()
-        return render(request, 'create_post.html', {'form': form})
+        return render(request, 'posts/create_post.html', {'form': form})
     else:
         return HttpResponse("auth")
 
@@ -82,7 +82,7 @@ def post_list(request):
         return redirect("auth")
     posts = Post.objects.filter(author=request.user)
     logger.info(f"Posts of {request.user}")
-    return render(request, "list.html", {"posts": posts})
+    return render(request, "posts/list.html", {"posts": posts})
 
 
 def post_list_all(request):
@@ -90,4 +90,9 @@ def post_list_all(request):
         return redirect("auth")
     posts = Post.objects.order_by("-created_at")
     logger.info(f"Posts of all users")
-    return render(request, "list.html", {"posts": posts})
+    return render(request, "posts/list.html", {"posts": posts})
+
+
+def post_view(request, slug):
+    post = Post.objects.get(slug=slug)
+    return render(request, "posts/post.html", {"post": post})

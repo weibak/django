@@ -19,13 +19,13 @@ from django.urls import path, include
 
 from blog.views import register, sign_in, logout_view
 from posts import views
-from posts.views import posts_index_2, create_post, post_list, post_list_all
+from posts.views import posts_index_2, create_post, post_list, post_list_all, post_view
 from profiles.views import profiles_index, search_profile
 from shop.views import product_list
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', post_list,),
+    path('', post_list, name='post_list'),
     path('index2/', posts_index_2,),
     path('search_slug/', views.search_slug,),
     path('search_title/', views.search_title),
@@ -35,6 +35,7 @@ urlpatterns = [
     path('register/', register, name='register'),
     path('auth/', sign_in, name="auth"),
     path('post/', create_post, name="post_add"),
+    path("post/<str:slug>/", post_view, name="post_view"),
     path("api/", include("api.urls", namespace="api")),
     path('logout/', logout_view, name='logout'),
     path('posts/all/', post_list_all, name='posts_all'),
