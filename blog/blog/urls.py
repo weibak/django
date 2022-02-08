@@ -21,7 +21,7 @@ from blog.views import register, sign_in, logout_view
 from posts import views
 from posts.views import posts_index_2, create_post, post_list, post_list_all, post_view
 from profiles.views import profiles_index, search_profile
-from shop.views import product_list
+from shop.views import product_list, product_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -40,6 +40,7 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('posts/all/', post_list_all, name='posts_all'),
     path('products/all/', product_list, name='product_all'),
+    path('product/<int:product_id>', product_view, name='product_card'),
 ]
 
 if settings.DEBUG:

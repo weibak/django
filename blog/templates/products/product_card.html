@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+<div class="col-4 post-item">
+  <div class="card">
+    {% if product.image %}
+    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}">
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title }}</h5>
+      <p class="card-text">Cost:<br>{{ product.cost }} | {{ product.get_status_display }}</p>
+      <p class="card-text">Description: <br>{{ product.text }}</p>
+        </div>
+          {% if product.purchases.exists %}
+           <p>
+           This user by this product recently:
+           <ul>
+           {% for purchase in product.purchases.all %}
+            <li>{{ purchase.count }} item(s) by {{ purchase.user.username }} </li>
+           {% endfor %}
+           </ul>
+            </p>
+          {% endif %}
+  </div>
+</div>
+{% endblock %}

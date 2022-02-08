@@ -74,7 +74,7 @@ def create_post(request):
             form = PostForm()
         return render(request, 'posts/create_post.html', {'form': form})
     else:
-        return HttpResponse("auth")
+        return redirect("auth")
 
 
 def post_list(request):
