@@ -10,13 +10,18 @@ COUNT_PROD = (
 
 
 class Product(models.Model):
-    image = models.ImageField(blank=True, null=True)
     title = models.CharField(max_length=200)
     cost = models.IntegerField()
-    text = models.CharField(max_length=500)
+    description = models.TextField(null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+    link = models.URLField(null=True, blank=True)
     status = models.CharField(
-        max_length=100, choices=COUNT_PROD, default="ENOUGH"
+        max_length=100, choices=COUNT_PROD, default="IN_STOCK"
     )
+    external_id = models.IntegerField()
+
+    def __str__(self):
+        return f"{self.title} - {self.cost}"
 
 
 class Purchase(models.Model):

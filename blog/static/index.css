@@ -19,3 +19,30 @@ body {
 .card-body{
     max-height: 160px;
 }
+
+.container .p0{
+    margin: 25px;
+}
+
+.d-flex{
+    margin: 5px;
+    height: 50px;
+}
+
+.posts .post-item {
+    margin-bottom: 15px;
+}
+
+.post-details .text {
+    white-space: pre-line;
+}
+
+.image-container {
+    max-height: 150px;
+    text-align: center;
+}
+
+.image-container img {
+    max-height: 150px;
+    width: auto;
+}
