@@ -1,29 +1,30 @@
 {% extends "base.html" %}
-{% load static %}
-{% load crispy_forms_filters %}
+{% load i18n static crispy_forms_filters %}
+
+{% block title %}Products{% endblock %}
 
 {% block content %}
-  <h1>Products</h1>
-  <div class="container products">
+  <main class="products">
+    <h1 class="my-4">Products</h1>
     <div class="row">
-      {% for product in products %}
-        <div class="col-4 product-item">
-          <div class="card">
-              <div class="image-container">
-              {% if product.image %}
-                <img src="{{ product.image }}" class="card-img-top img-thumbnail" alt="{{ product.title }}">
-              {% else %}
-                <img src="{% static 'no-image.jpg' %}" class="card-img-top img-thumbnail" alt="No image">
-              {% endif %}
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">{{ product.title }}</h5>
-              <p class="card-cost">Cost: {{ product.cost }}</p>
-              <a href="{% url "product_card" product.id %}">Go to product</a>
-            </div>
-          </div>
+      <div class="col-3">
+          <div class="filters-form mb-4">
+          <h3>{% translate "Filters" %}</h3>
+          <form class="form-inline">
+            {{ filters_form|crispy }}
+            <button type="submit" class="save btn btn-primary">Search</button>
+          </form>
         </div>
-      {% endfor %}
+      </div>
+      <div class="col-9">
+        <div class="row">
+          {% for product in products %}
+            <div class="col-4">
+              {% include "products/product_card.html" %}
+            </div>
+          {% endfor %}
+        </div>
+      </div>
     </div>
-  </div>
+  </main>
 {% endblock %}

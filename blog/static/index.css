@@ -2,33 +2,6 @@ body {
     background-color: #cecece;
 }
 
-.posts.post-item {
-    margin-bottom: 15px;
-}
-
-.image-container {
-    max-height: 130px;
-    text-align: center;
-}
-
-.img-thumbnail {
-    max-height: 130px;
-    width: auto;
-}
-
-.card-body{
-    max-height: 160px;
-}
-
-.container .p0{
-    margin: 25px;
-}
-
-.d-flex{
-    margin: 5px;
-    height: 50px;
-}
-
 .posts .post-item {
     margin-bottom: 15px;
 }

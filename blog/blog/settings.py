@@ -165,6 +165,10 @@ LOGGING = {
         'handlers': ['console'],
         'level': 'INFO',
     },
+    "scrapy.core.scraper": {
+        "handlers": [],
+        "level": "ERROR",
+    },
     'django.db.backends': {
         'handlers': ['console'],
         'level': 'ERROR',
