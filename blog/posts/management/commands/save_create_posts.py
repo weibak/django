@@ -18,7 +18,7 @@ class Command(BaseCommand):
             response = requests.get(url)
             filename.write_bytes(response.content)
 
-        load_file('https://raw.githubusercontent.com/weibak/django/master/blog/posts.csv', 'load_csv_posts_file.csv')
+        load_file('https://www.oma.by/upload/Sh/imageCache/da7/ddf/793956f6eb72f2022e353d0043b49ac8.jpg', 'load_csv_posts_file.jpg')
 
         with open(settings.BASE_DIR / "load_csv_posts_file.csv", "r") as file:
             reader = csv.reader(file)
