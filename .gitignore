@@ -1,6 +1,6 @@
 .venv/
 .idea/
-
+./blog/media
 venv/
 
 __pycache__/

@@ -1,19 +1,24 @@
 import logging
 
 import scrapy
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class OmaSpider(scrapy.Spider):
     name = "oma.by"
     allowed_domains = ["https://www.oma.by"]
-    start_urls = ["https://www.oma.by/elektroinstrument-c?PAGEN_1=2"]
+    start_urls = ["https://www.oma.by/elektroinstrument-c"]
 
-    def __init__(self, *args, **kwargs):
-        logger = logging.getLogger("scrapy")
-        logger.setLevel(logging.ERROR)
-        super().__init__(*args, **kwargs)
+#    def __init__(self, *args, **kwargs):
+#        logger = logging.getLogger("scrapy")
+#        logger.setLevel(logging.ERROR)
+#        super().__init__(*args, **kwargs)
 
     def parse(self, response, **kwargs):
+        logger.info("processing:"+response.url)
         for product in response.css(".catalog-grid .product-item"):
             image_link = product.css('.product-item_img-box img:first-child::attr(data-lazy)').get()
             if not image_link:
@@ -26,3 +31,12 @@ class OmaSpider(scrapy.Spider):
                 "image": f"{self.allowed_domains[0]}{image_link}",
             }
             yield data
+
+        NEXT_PAGE_SELECTOR = '.btn__nav-right::attr(href)'
+        next_page = response.css(NEXT_PAGE_SELECTOR).extract_first()
+        if next_page:
+            logger.info({next_page})
+            yield scrapy.Request(
+                response.urljoin(next_page),
+                callback=self.parse
+                )
