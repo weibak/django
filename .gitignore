@@ -3,6 +3,8 @@
 ./blog/media
 venv/
 
+/blog/media
+
 __pycache__/
 *.py[cod]
 *$py.class

@@ -1,4 +1,5 @@
 from django.contrib import messages
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 import logging
 from django.db.models import Sum, F
@@ -35,6 +36,10 @@ def product_list(request):
                 products = products.annotate(
                     total_cost=Sum("purchases__count") * F("cost")
                 ).order_by("-total_cost")
+
+    paginator = Paginator(products, 30)
+    page_number = request.GET.get("page")
+    products = paginator.get_page(page_number)
     return render(request, "products/product_list.html", {"filters_form": filters_form, "products": products})
 
 
@@ -44,9 +49,7 @@ def product_view(request, product_id):
         if request.POST.get("count"):
             Purchase.objects.create(product=product, user=request.user, count=request.POST.get("count"))
             return redirect("product_card", product_id=product_id)
-
         if request.user.is_authenticated and request.method == "POST":
-
             if request.POST["action"] == "add":
                 product.favorites.add(request.user)
                 messages.info(request, "Product successfully added to favorites")
