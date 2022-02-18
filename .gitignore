@@ -1,9 +1,9 @@
 .venv/
 .idea/
-./blog/media
+
 venv/
 
-/blog/media
+media/
 
 __pycache__/
 *.py[cod]
