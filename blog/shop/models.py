@@ -20,12 +20,11 @@ ORDER_BY_CHOICES = (
 class Product(models.Model):
     title = models.CharField(max_length=200)
     cost = models.IntegerField()
+    cost_usd = models.DecimalField(default=0, decimal_places=2, max_digits=15)
     description = models.TextField(null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     link = models.URLField(null=True, blank=True)
-    status = models.CharField(
-        max_length=100, choices=COUNT_PROD, default="ENOUGH"
-    )
+    status = models.CharField(max_length=100, choices=COUNT_PROD, default="ENOUGH")
     external_id = models.IntegerField()
     favorites = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="favorite_products"

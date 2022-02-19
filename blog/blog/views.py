@@ -16,12 +16,12 @@ def register(request):
         if form.is_valid():
             logger.info(form.cleaned_data)
             user = User(
-                username=form.cleaned_data['email'],
-                email=form.cleaned_data['email'],
-                first_name=form.cleaned_data['first_name'],
-                last_name=form.cleaned_data['last_name'],
+                username=form.cleaned_data["email"],
+                email=form.cleaned_data["email"],
+                first_name=form.cleaned_data["first_name"],
+                last_name=form.cleaned_data["last_name"],
             )
-            user.set_password(form.cleaned_data['password'])
+            user.set_password(form.cleaned_data["password"])
             user.save()
             return redirect("/")
     else:
@@ -34,17 +34,17 @@ def sign_in(request):
         form = AuthForm(request.POST)
         if form.is_valid():
             logger.info(form.cleaned_data)
-            username = form.cleaned_data['username']
-            password = form.cleaned_data['password']
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
             user = authenticate(request, username=username, password=password)
             if user is not None:
                 if user.is_active:
                     login(request, user)
-                    return redirect('/')
+                    return redirect("/")
                 else:
-                    return HttpResponse('Disabled account')
+                    return HttpResponse("Disabled account")
             else:
-                return redirect('register')
+                return redirect("register")
     else:
         form = AuthForm
     return render(request, "sign_in.html", {"form": form})
@@ -52,4 +52,7 @@ def sign_in(request):
 
 def logout_view(request):
     logout(request)
-    return render(request, "logout.html",)
+    return render(
+        request,
+        "logout.html",
+    )

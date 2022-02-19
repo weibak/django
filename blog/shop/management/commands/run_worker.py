@@ -1,8 +1,9 @@
 from django.core.management.base import BaseCommand
+from shop.tasks import run_products_update
 
 
 class Command(BaseCommand):
-    help = "The Zen of Python"
+    help = "Run worker"
 
     def handle(self, *args, **options):
-        import this
+        run_products_update.delay()

@@ -10,9 +10,7 @@ class Profile(models.Model):
     age = models.IntegerField()
     image = models.ImageField(blank=True, null=True)
     status = models.TextField()
-    created_at = models.DateTimeField(
-        auto_now_add=True, db_index=True
-    )
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)
 
 
 class Tags(models.Model):

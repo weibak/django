@@ -18,15 +18,13 @@ class Command(BaseCommand):
             response = requests.get(url)
             filename.write_bytes(response.content)
 
-        load_file('https://www.oma.by/upload/Sh/imageCache/da7/ddf/793956f6eb72f2022e353d0043b49ac8.jpg', 'load_csv_posts_file.jpg')
+        load_file(
+            "https://www.oma.by/upload/Sh/imageCache/da7/ddf/793956f6eb72f2022e353d0043b49ac8.jpg",
+            "load_csv_posts_file.jpg",
+        )
 
         with open(settings.BASE_DIR / "load_csv_posts_file.csv", "r") as file:
             reader = csv.reader(file)
             for row in reader:
                 user = User.objects.filter(username=row[5]).first()
-                Post.objects.create(
-                    author=user,
-                    title=row[1],
-                    slug=row[2],
-                    text=row[3]
-                )
+                Post.objects.create(author=user, title=row[1], slug=row[2], text=row[3])

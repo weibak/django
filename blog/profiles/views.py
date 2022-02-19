@@ -39,9 +39,11 @@ def search_profile(request):
     image = profile.image
     status = profile.status
     age = profile.age
-    output = "<h2> Name: {0}</h2><br>"\
-             "<h2> Surname: {1}</h2><br>" \
-             "<h2> Image: {2}</h2><br>" \
-             "<h2>Status: {3}</h2><br>" \
-             "<h2> Age: {4}</h2><br>".format(name, surname, image, status, age)
+    output = (
+        "<h2> Name: {0}</h2><br>"
+        "<h2> Surname: {1}</h2><br>"
+        "<h2> Image: {2}</h2><br>"
+        "<h2>Status: {3}</h2><br>"
+        "<h2> Age: {4}</h2><br>".format(name, surname, image, status, age)
+    )
     return HttpResponse(output)

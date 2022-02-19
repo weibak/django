@@ -19,9 +19,4 @@ class Command(BaseCommand):
             reader = csv.reader(file)
             for row in reader:
                 user = User.objects.filter(username=row[4]).first()
-                Post.objects.create(
-                    title=row[0],
-                    slug=row[1],
-                    text=row[2],
-                    author=user
-                )
+                Post.objects.create(title=row[0], slug=row[1], text=row[2], author=user)

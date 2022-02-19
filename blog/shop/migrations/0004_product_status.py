@@ -6,13 +6,21 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('shop', '0003_product_text'),
+        ("shop", "0003_product_text"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='product',
-            name='status',
-            field=models.CharField(choices=[('FEW', 'Small amount'), ('ENOUGH', 'Enough good'), ('A_LOT', 'A lot of good')], default='ENOUGH', max_length=100),
+            model_name="product",
+            name="status",
+            field=models.CharField(
+                choices=[
+                    ("FEW", "Small amount"),
+                    ("ENOUGH", "Enough good"),
+                    ("A_LOT", "A lot of good"),
+                ],
+                default="ENOUGH",
+                max_length=100,
+            ),
         ),
     ]

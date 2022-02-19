@@ -12,7 +12,9 @@ class TestProfilesApi:
     def test_profiles_index_view(self):
         client = Client()
 
-        user = User.objects.create(username="test", email="test@test.com", password="test")
+        user = User.objects.create(
+            username="test", email="test@test.com", password="test"
+        )
         Profile.objects.create(user=user, age=25, status="test")
 
         client.force_login(user)

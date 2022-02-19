@@ -37,10 +37,12 @@ def search_slug(request):
     author = post.author
     image = post.image
     text = post.text
-    output = "<h2> Title: {0}</h2><br>"\
-             "<h2> Author: {1}</h2><br>" \
-             "<h2> Image: {2}</h2><br>" \
-             "<h1>Text: {3}<h1><br>".format(title, author, image, text)
+    output = (
+        "<h2> Title: {0}</h2><br>"
+        "<h2> Author: {1}</h2><br>"
+        "<h2> Image: {2}</h2><br>"
+        "<h1>Text: {3}<h1><br>".format(title, author, image, text)
+    )
     return HttpResponse(output)
 
 
@@ -69,10 +71,12 @@ def create_post(request):
                 logger.info(form.cleaned_data)
                 post = Post.objects.create(author=request.user, **form.cleaned_data)
                 post.save()
-                return redirect('/',)
+                return redirect(
+                    "/",
+                )
         else:
             form = PostForm()
-        return render(request, 'posts/create_post.html', {'form': form})
+        return render(request, "posts/create_post.html", {"form": form})
     else:
         return redirect("auth")
 
