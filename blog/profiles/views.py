@@ -1,5 +1,6 @@
 import logging
 from django.http import HttpResponse
+from django.shortcuts import render
 
 from profiles.models import Profile
 from django.contrib.auth.models import User
@@ -30,13 +31,13 @@ def profiles_index(request):
 
 # поиск по user
 def search_profile(request):
-    username = request.GET.get("user", "")
+    username = request.user
     logger.info(f"User with name = {username}")
     user = User.objects.filter(username=username).first()
     profile = Profile.objects.filter(user_id=user).first()
     name = user.first_name
     surname = user.last_name
-    image = profile.image
+    image = profile.image.url
     status = profile.status
     age = profile.age
     output = (
@@ -47,3 +48,8 @@ def search_profile(request):
         "<h2> Age: {4}</h2><br>".format(name, surname, image, status, age)
     )
     return HttpResponse(output)
+
+
+def profile_view(request):
+    profile = Profile.objects.get(user=request.user)
+    return render(request, "profile.html", {"profile": profile})

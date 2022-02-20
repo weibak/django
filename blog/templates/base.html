@@ -22,12 +22,21 @@
   <!-- Grid container -->
   <div class="container p-0">
       <!-- Section: CTA -->
-      <section class="register">
-        <p class="d-flex justify-content-center align-items-center">
-            <span class="me-1">Register for free</span>
-          <a href="{% url "register"%}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Sign UP</a>
-          </p>
-      </section>
+      {% if request.user.is_authenticated %}
+          <section class="glyphicon-log-out">
+              <p class="d-flex justify-content-center align-items-center">
+                  <span class="me-1">Logout</span>
+                  <a href="{% url "logout"%}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Logout</a>
+              </p>
+          </section>
+      {% else %}
+          <section class="register">
+              <p class="d-flex justify-content-center align-items-center">
+                  <span class="me-1">Register for free</span>
+                  <a href="{% url "register"%}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Sign UP</a>
+              </p>
+          </section>
+      {% endif %}
       <!-- Section: CTA -->
   </div>
   <!-- Grid container -->

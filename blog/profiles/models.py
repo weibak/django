@@ -6,7 +6,6 @@ class Profile(models.Model):
     user = models.ForeignKey(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="profiles"
     )
-
     age = models.IntegerField()
     image = models.ImageField(blank=True, null=True)
     status = models.TextField()

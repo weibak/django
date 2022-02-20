@@ -20,7 +20,7 @@ from django.urls import path, include
 from blog.views import register, sign_in, logout_view
 from posts import views
 from posts.views import posts_index_2, create_post, post_list, post_list_all, post_view
-from profiles.views import profiles_index, search_profile
+from profiles.views import profiles_index, search_profile, profile_view
 from shop.views import product_list, product_view
 
 urlpatterns = [
@@ -32,7 +32,7 @@ urlpatterns = [
     path("search_title/", views.search_title),
     path("search_posts/", views.search_user_posts),
     path("profiles/", profiles_index, ),
-    path("profile_profile/", search_profile, ),
+    path("profile_profile/", profile_view, name="profile"),
     path("register/", register, name="register"),
     path("auth/", sign_in, name="auth"),
     path("post/", create_post, name="post_add"),
