@@ -21,7 +21,7 @@ class TestProfilesApi:
 
         response = client.get("/api/profiles/")
         assert response.status_code == 200
-        assert response.data[0]["status"] == "test"
+        assert response.data["results"][0]["status"] == "test"
 
         response = client.post("/api/profiles/", data={"age": 25, "status": "test"})
         assert response.status_code == 201
