@@ -68,8 +68,7 @@ class UserLogoutView(GenericAPIView):
 
     permission_classes = []
 
-    def logout(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         if request.user.is_authenticated:
             logout(request)
-            return Response
-
+        return Response()

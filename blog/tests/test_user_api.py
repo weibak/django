@@ -10,7 +10,6 @@ faker = Faker()
 class TestUserApi:
     def test_register_api(self):
         client = Client()
-
         data = {
             "email": faker.email(),
             "password": faker.password(),

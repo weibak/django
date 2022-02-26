@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-u@wo0az-40#ax=hu+y3k7zk(-bh*gh@ic&nh4=_k1c#4e3!gh5
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -90,7 +90,7 @@ DATABASES = {
         "NAME": "django",
         "USER": "django",
         "PASSWORD": "django",
-        "HOST": "localhost",
+        "HOST": os.getenv("POSTGRES_HOST", "localhost"),
         "PORT": 5432,
     }
 }
@@ -109,7 +109,7 @@ REST_FRAMEWORK = {
 # Redis server
 RQ_QUEUES = {
     "default": {
-        "HOST": "localhost",
+        "HOST": os.getenv("REDIS_HOST", "localhost"),
         "PORT": 6379,
         "DB": 0,
         "DEFAULT_TIMEOUT": 360,
