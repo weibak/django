@@ -4,7 +4,7 @@
 {% block title %}Products{% endblock %}
 
 {% block content %}
-  <main class="products">
+  <div class="products">
     <h1 class="my-4">{% translate "Products" %}</h1>
     <div class="row">
       <div class="col-3">
@@ -24,6 +24,7 @@
             </div>
           {% endfor %}
         </div>
+      </nav>
         <nav aria-label="Page navigation example" class="my-3">
           <ul class="pagination justify-content-center">
             {% if products.has_previous %}
@@ -58,7 +59,7 @@
             {% endif %}
           </ul>
         </nav>
-      </div>
+     </div>
     </div>
   </main>
 {% endblock %}

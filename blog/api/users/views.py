@@ -7,7 +7,11 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
-from api.users.serializers import UserModelSerializer, UserCreateSerializer, UserLoginSerializer
+from api.users.serializers import (
+    UserModelSerializer,
+    UserCreateSerializer,
+    UserLoginSerializer,
+)
 
 
 class UserViewSet(ListModelMixin, RetrieveModelMixin, GenericViewSet):
@@ -52,7 +56,7 @@ class UserLoginView(GenericAPIView):
         user = authenticate(
             request=request,
             username=serializer.validated_data["email"],
-            password=serializer.validated_data["password"]
+            password=serializer.validated_data["password"],
         )
         if user is not None:
             if user.is_active:

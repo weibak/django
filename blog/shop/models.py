@@ -25,7 +25,7 @@ class Product(models.Model):
     image = models.ImageField(null=True, blank=True)
     link = models.URLField(null=True, blank=True)
     status = models.CharField(max_length=100, choices=COUNT_PROD, default="ENOUGH")
-    external_id = models.IntegerField()
+    external_id = models.IntegerField(null=True, blank=True)
     favorites = models.ManyToManyField(
         settings.AUTH_USER_MODEL, related_name="favorite_products"
     )

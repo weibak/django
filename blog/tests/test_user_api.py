@@ -1,7 +1,8 @@
 import pytest
+
+from faker import Faker
 from django.contrib.auth.models import User
 from django.test import Client
-from faker import Faker
 
 faker = Faker()
 
@@ -10,6 +11,7 @@ faker = Faker()
 class TestUserApi:
     def test_register_api(self):
         client = Client()
+
         data = {
             "email": faker.email(),
             "password": faker.password(),

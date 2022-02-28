@@ -32,9 +32,7 @@ def run_oma_spider():
                 path = Path(item["image"])
                 open(settings.MEDIA_ROOT / path.name, "wb").write(response.content)
                 item["image"] = path.name
-        Product.objects.update_or_create(
-            external_id=item["external_id"], defaults=item
-        )
+        Product.objects.update_or_create(external_id=item["external_id"], defaults=item)
 
     dispatcher.connect(crawler_results, signal=signals.item_scraped)
 
@@ -52,4 +50,4 @@ def run_bun_usd():
     logger.info(data)
     exchange = round(float(data["USD_BYN"]), 2)
     logger.info(exchange)
-    Product.objects.all().update(cost_usd=F('cost')/exchange)
+    Product.objects.all().update(cost_usd=F("cost") / exchange)
