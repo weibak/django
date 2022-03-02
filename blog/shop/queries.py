@@ -23,8 +23,8 @@ def filter_products(products, cost__gt, cost__lt, order_by):
 
 
 def filter_purchases(purchases, order_by):
-    if order_by == "Newest First":
+    if order_by == "-created_at":
         purchases = purchases.order_by("-created_at")
-    elif order_by == "Oldest First":
+    elif order_by == "created_at":
         purchases = purchases.order_by("created_at")
     return purchases

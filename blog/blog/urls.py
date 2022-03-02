@@ -21,7 +21,7 @@ from blog.views import register, sign_in, logout_view
 from posts import views
 from posts.views import posts_index_2, create_post, post_list, post_list_all, post_view
 from profiles.views import profiles_index, profile_view
-from shop.views import product_list, product_view
+from shop.views import product_list, product_view, ProductView
 
 urlpatterns = [
     path("admin/django-rq/", include("django_rq.urls")),
@@ -49,7 +49,7 @@ urlpatterns = [
     path("api/", include("api.urls", namespace="api")),
     path("logout/", logout_view, name="logout"),
     path("posts/all/", post_list_all, name="posts_all"),
-    path("", product_list, name="home"),
+    path("", ProductView.as_view(), name="home"),
     path("product/<int:product_id>", product_view, name="product_card"),
 ]
 
