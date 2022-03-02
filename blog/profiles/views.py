@@ -1,10 +1,13 @@
 import logging
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from profiles.models import Profile
 from django.contrib.auth.models import User
 
+from shop.forms import PurchasesFiltersForm
+from shop.models import Purchase
+from shop.queries import filter_purchases
 
 logger = logging.getLogger(__name__)
 
@@ -51,5 +54,21 @@ def search_profile(request):
 
 
 def profile_view(request):
+    if request.user.is_anonymous:
+        return redirect("auth")
     profile = Profile.objects.get(user=request.user)
-    return render(request, "profile.html", {"profile": profile})
+    purchases = Purchase.objects.filter(user=request.user).all()
+    logger.info(f"Purchases of {request.user}")
+    filters_form = PurchasesFiltersForm(request.GET)
+
+    if filters_form.is_valid():
+        order_by = filters_form.cleaned_data["order_by"]
+        purchases = filter_purchases(purchases, order_by)
+
+    return render(
+        request,
+        "profile.html", {
+            "profile": profile,
+            "purchases": purchases,
+            "filters_form": filters_form}
+    )

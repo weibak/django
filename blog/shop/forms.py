@@ -28,7 +28,14 @@ class PurchasesFiltersForm(forms.Form):
     order_by = forms.ChoiceField(
         choices=(
             ("-created_at", "Newest First"),
-            ("created_at", "Oldest First"),
-        ),
+            ("created_at", "Oldest First"),),
         required=False,
     )
+
+
+"""
+    def clean(self):
+        cleaned_data = super().clean()
+        order_by = cleaned_data.get("order_by")
+        return order_by
+"""

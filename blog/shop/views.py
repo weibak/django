@@ -2,11 +2,34 @@ from django.contrib import messages
 from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404, redirect
 import logging
+
+from django.views.generic import TemplateView
+
 from shop.forms import ProductFiltersForm
 from shop.models import Product, Purchase
 from shop.queries import filter_products
 
 logger = logging.getLogger(__name__)
+
+
+# class ProductView(TemplateView):
+#   template_name = "products/product_list.html"
+#
+# def get_context_data(self, **kwargs,):
+#  context = super().get_context_data()
+# products = Product.objects.all()
+#  filters_form = ProductFiltersForm()
+#   if filters_form.is_valid():
+#        cost__gt = filters_form.cleaned_data["cost__gt"]
+#         cost__lt = filters_form.cleaned_data["cost__lt"]
+#          order_by = filters_form.cleaned_data["order_by"]
+#           products = filter_products(products, cost__gt, cost__lt, order_by)
+#
+#     paginator = Paginator(products, 30)
+#      page_number = "page"
+#       products = paginator.get_page(page_number)
+#
+#        return context.update({"products": products, "filters_form": filters_form})
 
 
 def product_list(request):

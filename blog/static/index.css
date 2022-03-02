@@ -19,6 +19,7 @@ body {
     max-height: 150px;
     width: auto;
 }
+
 .padding {
     padding: 3rem !important
 }
@@ -35,21 +36,13 @@ body {
     margin-bottom: 30px
 }
 
-.m-r-0 {
-    margin-right: 0px
-}
-
-.m-l-0 {
-    margin-left: 0px
-}
-
 .user-card-full .user-profile {
     border-radius: 5px 0 0 5px
 }
 
 .bg-c-lite-green {
-    background: -webkit-gradient(linear, left top, right top, from(#f29263), to(#ee5a6f));
-    background: linear-gradient(to right, #ee5a6f, #f29263)
+    background: -webkit-gradient(linear, left top, right top, from(#b3696c), to(#666666));
+    background: linear-gradient(to right, #7d453a, #967c73)
 }
 
 .user-profile {
@@ -60,14 +53,6 @@ body {
     padding: 1.25rem
 }
 
-.m-b-25 {
-    margin-bottom: 25px
-}
-
-.img-radius {
-    border-radius: 5px
-}
-
 h6 {
     font-size: 14px
 }
@@ -76,18 +61,12 @@ h6 {
     line-height: 25px
 }
 
-@media only screen and (min-width: 1400px) {
-    p {
-        font-size: 14px
-    }
-}
-
 .card-block {
     padding: 1.25rem
 }
 
 .b-b-default {
-    border-bottom: 1px solid #e0e0e0
+    border-bottom: 1px solid #645d5d
 }
 
 .m-b-20 {

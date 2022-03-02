@@ -20,3 +20,11 @@ def filter_products(products, cost__gt, cost__lt, order_by):
                 total_cost=Sum("purchases__count") * F("cost")
             ).order_by("-total_cost")
     return products
+
+
+def filter_purchases(purchases, order_by):
+    if order_by == "Newest First":
+        purchases = purchases.order_by("-created_at")
+    elif order_by == "Oldest First":
+        purchases = purchases.order_by("created_at")
+    return purchases
