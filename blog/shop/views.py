@@ -17,7 +17,7 @@ class ProductView(TemplateView):
 
     def get_context_data(self, **kwargs, ):
         products = Product.objects.all()
-        filters_form = ProductFiltersForm()
+        filters_form = ProductFiltersForm(self.request.GET)
 
         if filters_form.is_valid():
             cost__gt = filters_form.cleaned_data["cost__gt"]
@@ -28,7 +28,6 @@ class ProductView(TemplateView):
         paginator = Paginator(products, 30)
         page_number = "page"
         products = paginator.get_page(page_number)
-
         return {"products": products, "filters_form": filters_form}
 
 
