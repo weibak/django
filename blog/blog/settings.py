@@ -27,7 +27,6 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 ALLOWED_HOSTS = ["*"]
 
 # Application definition
-
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -85,9 +84,9 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "django",
-        "USER": "django",
-        "PASSWORD": "django",
+        "NAME": os.getenv("POSTGRES_NAME", "django"),
+        "USER": os.getenv("POSTGRES_USER", "django"),
+        "PASSWORD": os.getenv("POSTGRES_PASS", "django"),
         "HOST": os.getenv("POSTGRES_HOST", "localhost"),
         "PORT": 5432,
     }
@@ -175,7 +174,7 @@ LOGGING = {
         "file": {
             "level": "INFO",
             "class": "logging.FileHandler",
-            "filename": "/home/weibak/projects/django/django.log",
+            "filename": "/home/weibak/projects/django.log",
         },
     },
     "root": {
