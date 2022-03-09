@@ -26,6 +26,8 @@ DEBUG = os.getenv("DEBUG", "True") == "True"
 
 ALLOWED_HOSTS = ["*"]
 
+CSRF_TRUSTED_ORIGINS = ["https://django-weibak.herokuapp.com/", "http://127.0.0.1"]
+
 # Application definition
 INSTALLED_APPS = [
     "django.contrib.admin",
