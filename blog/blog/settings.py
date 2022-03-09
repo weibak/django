@@ -150,7 +150,7 @@ STATICFILES_FINDERS = [
     "django.contrib.staticfiles.finders.AppDirectoriesFinder",
 ]
 
-#STATIC_ROOT = BASE_DIR / "static"
+# STATIC_ROOT = BASE_DIR / "static"
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_URL = "/static/"
 
@@ -172,15 +172,14 @@ LOGGING = {
         "console": {
             "class": "logging.StreamHandler",
         },
-    },
-    "file": {
-        "level": "INFO",
-        "class": "logging.FileHandler",
-        "filename": os.getenv("LOGGER_FILE", "/django.log"),
-        "formatter": "standard",
+        "file": {
+            "level": "INFO",
+            "class": "logging.FileHandler",
+            "filename": "/home/weibak/projects/django/django.log",
+        },
     },
     "root": {
-        "handlers": ["console"],
+        "handlers": ["console", "file"],
         "level": "INFO",
     },
     "scrapy.core.scraper": {

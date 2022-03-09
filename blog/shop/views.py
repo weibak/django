@@ -16,6 +16,7 @@ class ProductView(TemplateView):
     template_name = "products/product_list.html"
 
     def get_context_data(self, **kwargs, ):
+        logger.info("test message")
         products = Product.objects.all()
         filters_form = ProductFiltersForm(self.request.GET)
 
