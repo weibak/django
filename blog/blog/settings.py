@@ -172,7 +172,6 @@ LOGGING = {
             "class": "logging.StreamHandler",
         },
         "file": {
-            "level": "INFO",
             "class": "logging.FileHandler",
             "filename": "/home/weibak/projects/django.log",
         },
