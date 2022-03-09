@@ -24,7 +24,7 @@ services:
       - postgres
       - redis
     environment:
-      - DEBUG=False
+      # - DEBUG=False
       - REDIS_HOST=redis
       - POSTGRES_HOST=postgres
     command: |
@@ -40,7 +40,7 @@ services:
       - postgres
       - redis
     environment:
-      - DEBUG=False
+     # - DEBUG=False
       - REDIS_HOST=redis
       - POSTGRES_HOST=postgres
     command: |

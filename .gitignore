@@ -5,6 +5,7 @@ venv/
 
 media/
 database.sql
+django/django.log
 __pycache__/
 *.py[cod]
 *$py.class
