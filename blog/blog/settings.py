@@ -173,7 +173,7 @@ LOGGING = {
         },
         "file": {
             "class": "logging.FileHandler",
-            "filename": "/home/weibak/projects/django.log",
+            "filename": "/weibak/projects/django.log",
         },
     },
     "root": {
