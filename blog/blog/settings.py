@@ -173,11 +173,11 @@ LOGGING = {
         },
         "file": {
             "class": "logging.FileHandler",
-            "filename": "/weibak/projects/django.log",
+            "filename": "/home/weibak/projects/django.log",
         },
     },
     "root": {
-        "handlers": ["console", "file"],
+        "handlers": ["console"],
         "level": "INFO",
     },
     "scrapy.core.scraper": {
